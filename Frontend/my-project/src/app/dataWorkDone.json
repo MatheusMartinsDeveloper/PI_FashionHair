@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "servico": "Penteados",
+        "imagens": ["/images/image-hairstyle.png",
+            "/images/image-hairstyle2.png",
+            "/images/image-hairstyle3.png",
+            "/images/image-hairstyle4.png",
+            "/images/image-hairstyle5.png"
+        ]
+    },
+    {
+        "id": 2,
+        "servico": "Maquiagem",
+        "imagens": ["/images/image-makeup.png",
+            "/images/image-makeup2.png",
+            "/images/image-makeup3.png",
+            "/images/image-makeup4.png",
+            "/images/image-makeup5.png"
+        ]
+    },
+    {
+        "id": 3,
+        "servico": "Manicure",
+        "imagens": ["/images/image-nails.png",
+            "/images/image-nails2.png",
+            "/images/image-nails3.png",
+            "/images/image-nails4.png",
+            "/images/image-nails5.png"
+        ]
+    }
+]

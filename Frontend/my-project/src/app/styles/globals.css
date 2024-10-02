@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.custom-swiper .swiper-button-prev, 
+.custom-swiper .swiper-button-next {
+    color: #FF6F61; 
+    font-size: 24px;
+}
+
+.custom-swiper .swiper-button-prev {
+    left: -20px;
+}
+
+.custom-swiper .swiper-button-next {
+    right: -10px;
+}
+
+.custom-prev-button, .custom-next-button {
+    color: #FFFFFF;
+    background-color: #FF6F61;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 8px 8px;
+    cursor: pointer;
+}
