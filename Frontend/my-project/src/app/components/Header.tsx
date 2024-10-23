@@ -28,7 +28,7 @@ export default function Header() {
                 </Link>
             </nav>
             <div className="w-[15%]">
-                <Link href={`/`} className="flex justify-center items-center gap-3 border-2 border-Coral rounded-full bg-Coral py-2 w-full text-Branco text-base font-Poppins font-medium uppercase group transition-all delay-75 ease-in-out hover:bg-CoralEscuro">
+                <Link href={`/login`} className="flex justify-center items-center gap-3 border-2 border-Coral rounded-full bg-Coral py-2 w-full text-Branco text-base font-Poppins font-medium uppercase group transition-all delay-75 ease-in-out hover:bg-CoralEscuro">
                     Login <FaArrowRight className="-rotate-45 transition-all delay-75 ease-in-out group-hover:rotate-0" />
                 </Link>
             </div>
