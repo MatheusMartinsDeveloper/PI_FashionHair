@@ -25,3 +25,39 @@
     padding: 8px 8px;
     cursor: pointer;
 }
+
+.p-stepper {
+    @apply flex justify-center items-center bg-Branco rounded-tl-md rounded-tr-md pt-10 w-[60%];
+}
+
+.p-stepper-nav {
+    @apply flex justify-around items-center w-[90%];
+}
+
+.p-stepper-action {
+    @apply flex gap-2;
+}
+
+.p-stepper-number {
+    @apply text-CinzaEscuro text-base font-Poppins font-medium border-2 border-CinzaEscuro rounded-full px-2;
+}
+
+.p-stepper-title {
+    @apply text-CinzaEscuro text-base font-Poppins font-medium;
+}
+
+.p-stepper-separator {
+    @apply bg-Coral mx-5 w-full h-[0.1em];
+}
+
+.p-button-icon {
+    @apply transition-all delay-75 ease-in-out group-hover:rotate-45;
+}
+
+.custom-icon-left .pi {
+    @apply transition-all delay-75 ease-in-out;
+}
+
+.custom-icon-left:hover .pi {
+    @apply -rotate-45;
+}

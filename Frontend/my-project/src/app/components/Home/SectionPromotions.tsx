@@ -5,9 +5,9 @@ import ImageNails from "../../../../public/images/Nails/image-nails.png";
 
 export default function SectionPromotions() {
     return (
-        <section className="flex flex-col items-center gap-10 py-[10%] w-full">
+        <section className="flex flex-col items-center gap-10 bg-CinzaClaro py-[10%] w-full">
             <div>
-                <h2 className="text-CoralVibrante text-4xl uppercase font-Poppins font-medium">Promoções</h2>
+                <h2 className="text-Coral text-4xl uppercase font-Poppins font-medium">Promoções</h2>
             </div>
             <div className="grid grid-cols-3 place-content-center place-items-center gap-5 w-full">
                 <CardPromotion

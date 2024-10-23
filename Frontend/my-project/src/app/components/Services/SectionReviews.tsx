@@ -12,9 +12,9 @@ import Person3 from "../../../../public/images/persons/image-person3.png";
 
 export default function SectionReviews() {
     return (
-        <section className="relative flex flex-col justify-center items-center gap-10 w-full h-[95vh]">
+        <section className="relative flex flex-col justify-center items-center gap-10 bg-CinzaClaro w-full h-[95vh]">
             <div>
-                <h2 className="text-CoralVibrante text-3xl uppercase font-Poppins font-medium">Feedback de nossos clientes</h2>
+                <h2 className="text-Coral text-3xl uppercase font-Poppins font-medium">Feedback de nossos clientes</h2>
             </div>
             <Swiper className="flex justify-center w-[65%] h-[60%]"
                 modules={[Navigation]}

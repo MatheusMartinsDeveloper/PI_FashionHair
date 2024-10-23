@@ -8,9 +8,9 @@ import imagePlace6 from "../../../../public/images/Places/image-place6.png";
 
 export default function SectionPlace() {
     return (
-        <section className="flex flex-col justify-center items-center gap-10 mt-[10%] w-full">
+        <section className="flex flex-col justify-center items-center gap-10 bg-CinzaClaro py-32 w-full">
             <div>
-                <h2 className="text-CoralVibrante text-3xl uppercase font-Poppins font-medium">Imagens do Salão</h2>
+                <h2 className="text-Coral text-3xl uppercase font-Poppins font-medium">Imagens do Salão</h2>
             </div>
             <div className="grid grid-cols-3 gap-5 w-[70%]">
                 <Image className="rounded-md" src={imagePlace} alt="Imagem do Salão" quality={100} />

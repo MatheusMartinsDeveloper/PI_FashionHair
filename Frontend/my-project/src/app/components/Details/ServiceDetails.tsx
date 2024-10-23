@@ -3,11 +3,11 @@ import { Autoplay } from "swiper/modules";
 import { FaRegStar } from "react-icons/fa6";
 import { MdFeedback } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
-import { Button } from "primereact/button";
 import "swiper/css";
 import "swiper/css/autoplay";
 import Image from "next/image";
 import dataService from "../Services/dataServices.json";
+import Button from "../Button";
 
 type ServiceDetailsProps = {
     id: string | string[];
@@ -17,8 +17,8 @@ export default function ServiceDetails({ id }: ServiceDetailsProps) {
     const service = dataService.find(indexService => indexService.id === id);
 
     return (
-        <div className="flex justify-center items-center w-full">
-            <div className="flex justify-center items-start bg-CinzaClaro shadow-2xl rounded-lg pt-5 px-5 w-[80%] h-full">
+        <div className="flex justify-center items-center bg-CinzaClaro py-32 w-full">
+            <div className="flex justify-center items-start bg-Branco shadow-2xl rounded-lg py-5 px-5 w-[80%] h-full">
                 <Swiper className="flex justify-center items-center w-[40%]"
                     modules={[Autoplay]}
                     autoplay={{
@@ -41,40 +41,41 @@ export default function ServiceDetails({ id }: ServiceDetailsProps) {
                 <div className="flex flex-col justify-around items-start pl-5 w-[60%] min-h-[35em]">
                     <div className="flex flex-col gap-5 w-full">
                         <div>
-                            <h1 className="text-CoralVibrante text-3xl uppercase font-Poppins font-normal tracking-widest">{service?.name}</h1>
+                            <h1 className="text-Coral text-3xl uppercase font-Poppins font-medium tracking-widest">{service?.name}</h1>
                         </div>
-                        <div>
-                            <p className="text-PretoSuave text-xl font-Lato font-normal">{service?.description}</p>
+                        <div className="w-[80%]">
+                            <p className="text-CinzaEscuro text-xl font-Lato font-normal">{service?.description}</p>
                         </div>
                     </div>
                     <div className="flex flex-col gap-5">
                         <div className="flex items-center gap-4">
-                            <span className="text-PretoSuave text-xl uppercase font-Poppins font-medium">Avaliação:</span>
-                            <span className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">
-                                <FaRegStar className="text-CoralVibrante" /> {service?.note}
+                            <span className="text-CinzaEscuro text-xl uppercase font-Poppins font-medium">Avaliação:</span>
+                            <span className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">
+                                <FaRegStar className="text-Coral" /> {service?.note}
                             </span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <span className="text-PretoSuave text-xl uppercase font-Poppins font-medium">Reviews:</span>
-                            <span className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">
-                                <MdFeedback className="text-CoralVibrante" /> {service?.reviews}
+                            <span className="text-CinzaEscuro text-xl uppercase font-Poppins font-medium">Reviews:</span>
+                            <span className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">
+                                <MdFeedback className="text-Coral" /> {service?.reviews}
                             </span>
                         </div>
                         <div className="flex items-center gap-4">
-                            <span className="text-PretoSuave text-xl uppercase font-Poppins font-medium">Preço:</span>
-                            <span className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">{service?.price}</span>
+                            <span className="text-CinzaEscuro text-xl uppercase font-Poppins font-medium">Preço:</span>
+                            <span className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">{service?.price}</span>
                         </div>
                     </div>
                     <div className="flex gap-5">
-                        <span className="text-PretoSuave text-xl uppercase font-Poppins font-medium">Benefícios:</span>
+                        <span className="text-CinzaEscuro text-xl uppercase font-Poppins font-medium">Benefícios:</span>
                         <div className="flex flex-col items-start gap-2">
-                            <p className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">{service?.benefits[0]}</p>
-                            <p className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">{service?.benefits[1]}</p>
-                            <p className="flex items-center gap-2 text-PretoSuave text-xl font-Lato font-normal">{service?.benefits[2]}</p>
+                            <p className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">{service?.benefits[0]}</p>
+                            <p className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">{service?.benefits[1]}</p>
+                            <p className="flex items-center gap-2 text-CinzaEscuro text-xl font-Lato font-normal">{service?.benefits[2]}</p>
                         </div>
                     </div>
                     <div className="flex justify-center items-center w-full">
-                        <Button className="flex justify-center items-center gap-5 bg-CoralVibrante text-Branco text-base uppercase font-Poppins font-medium rounded-lg p-3 w-full transition-all delay-75 ease-in-out hover:scale-105"                 
+                        <Button className="flex justify-center items-center gap-5 bg-Coral text-Branco text-lg uppercase font-Poppins font-medium rounded-lg p-3 w-full transition-all delay-75 ease-in-out hover:bg-CoralEscuro"                 
+                            href={`/servicos/detalhes/${id}/agendamento`}
                         >Agendar <FaCalendarAlt />
                         </Button>
                     </div>

@@ -4,7 +4,7 @@ import SectionMap from "../components/About/SectionMap";
 
 export default function Sobre() {
     return (
-        <main className="mt-[5%] w-full">
+        <main className="w-full">
             <SectionAboutUs />
             <SectionPlace />
             <SectionMap />

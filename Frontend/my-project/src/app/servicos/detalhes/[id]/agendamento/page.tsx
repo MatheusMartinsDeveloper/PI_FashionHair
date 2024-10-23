@@ -1,16 +1,15 @@
-"use client";
-
+"use client"
 import { useParams } from "next/navigation";
-import SectionServiceDetails from "@/app/components/Details/SectionServiceDetails";
 import { IDSchedulingContext } from "@/app/context/IDSchedulingContext";
+import SectionScheduling from "@/app/components/Scheduling/SectionScheduling";
 
-export default function Detalhes() {
+export default function Agendamento() {
     const { id } = useParams();
 
     return (
         <IDSchedulingContext.Provider value={{ id }}>
             <main className="w-full">
-                <SectionServiceDetails />
+                <SectionScheduling />
             </main>
         </IDSchedulingContext.Provider>
     );

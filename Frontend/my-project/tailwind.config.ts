@@ -10,11 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        CinzaClaro: "#F0F0F0",
-        PretoSuave: "#333333",
-        CoralVibrante: "#FF6F61",
+        Coral: "#FF6F61",
+        CoralEscuro: "#D95B50",
         Branco: "#FFFFFF",
-        CinzaMedio: "#B0B0B0"
+        CinzaClaro: "#F0F0F0",
+        CinzaEscuro: "#333333"
       },
       fontFamily: {
         Poppins: ["Poppins", "sans-serif"],

@@ -23,11 +23,11 @@ export default function CardPromotion({ src, alt, quality, width, height, servic
                 height={height}
             />
             <div className="flex flex-col justify-center items-center">
-                <span className="text-PretoSuave text-xl font-Poppins font-medium">{service} - {discount}% OFF</span>
+                <span className="text-CinzaEscuro text-xl font-Poppins font-medium">{service} - {discount}% OFF</span>
                 <div className="flex items-center gap-4">
-                    <span className="text-PretoSuave text-base line-through font-Lato font-normal">R${oldprice}</span>
-                    <span className="text-PretoSuave text-base font-Lato font-normal">agora por</span>
-                    <span className="text-PretoSuave text-base font-Lato font-normal">R${price}</span>
+                    <span className="text-CinzaEscuro text-base line-through font-Lato font-normal">R${oldprice}</span>
+                    <span className="text-CinzaEscuro text-base font-Lato font-normal">agora por</span>
+                    <span className="text-CinzaEscuro text-base font-Lato font-normal">R${price}</span>
                 </div>
             </div>
         </div>

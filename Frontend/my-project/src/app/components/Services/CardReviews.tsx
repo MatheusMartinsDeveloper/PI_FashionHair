@@ -12,7 +12,7 @@ type CardReviewsProps = {
 
 export default function CardReviews({ image, width, height, name, review }: CardReviewsProps) {
     return (
-        <div className="flex justify-center items-center bg-CoralVibrante rounded-lg w-full h-full">
+        <div className="flex justify-center items-center bg-Coral rounded-lg w-full h-full">
             <div className="flex justify-center w-1/2">
                 <Image className="border-4 border-Branco rounded-full"
                     src={image}
