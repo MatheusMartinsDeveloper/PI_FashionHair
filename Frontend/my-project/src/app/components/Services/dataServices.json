@@ -14,8 +14,7 @@
         "benefits": ["Realça a cor natural do cabelo sem necessidade de mudanças radicais.",
         "Dá luminosidade e brilho ao rosto, deixando o visual mais vibrante.",
         "Pode ser adaptado a diferentes estilos, desde um look discreto até mais ousado."],
-        "duration": "3 horas",
-        "payment": []
+        "duration": "3 horas"
     },
     {
         "id": "2",
@@ -32,8 +31,7 @@
         "benefits": ["Reconstrói a fibra capilar, deixando os fios mais fortes e saudáveis.",
         "Reduz o frizz e proporciona um efeito liso e macio de longa duração.",
         "Hidratação profunda que deixa o cabelo mais brilhoso e sedoso."],
-        "duration": "2 horas",
-        "payment": []
+        "duration": "2 horas"
     },
     {
         "id": "3",
@@ -50,8 +48,7 @@
         "benefits": ["Permite total personalização da cor, de acordo com o estilo do cliente.",
         "Cobre os fios brancos de forma eficiente e natural.",
         "Protege os fios com fórmulas enriquecidas, evitando ressecamento e danos."],
-        "duration": "1 hora e 30 minutos",
-        "payment": []
+        "duration": "1 hora e 30 minutos"
     },
     {
         "id": "4",
@@ -68,8 +65,7 @@
         "benefits": ["Valoriza o rosto com um estilo que combina com a ocasião, seja casual ou formal.",
         "Proporciona volume e definição, destacando a textura dos fios.",
         "Fixação prolongada, garantindo que o penteado dure por todo o evento."],
-        "duration": "1 hora",
-        "payment": []
+        "duration": "1 hora"
     },
     {
         "id": "5",
@@ -86,8 +82,7 @@
         "benefits": ["Realça os traços naturais, proporcionando um look elegante e profissional.",
         "Pode ser adaptada para diferentes ocasiões, como eventos sociais ou fotos.",
         "Utilização de produtos de alta qualidade que garantem durabilidade e um acabamento impecável."],
-        "duration": "1 hora",
-        "payment": []
+        "duration": "1 hora"
     },
     {
         "id": "6",
@@ -104,8 +99,7 @@
         "benefits": ["Preenchimento natural e duradouro, proporcionando definição às sobrancelhas.",
         "Ajuda a modelar o formato das sobrancelhas, harmonizando com o rosto.",
         "Produto natural, ideal para quem busca alternativas não invasivas para micropigmentação."],
-        "duration": "30 minutos",
-        "payment": []
+        "duration": "30 minutos"
     },
     {
         "id": "7",
@@ -122,7 +116,6 @@
         "benefits": ["Cuidados completos para unhas saudáveis e fortes.",
         "Variedade de esmaltes e técnicas, garantindo um acabamento perfeito e duradouro.",
         "Inclui hidratação e esfoliação das mãos, proporcionando uma sensação de bem-estar."],
-        "duration": "45 minutos",
-        "payment": []
+        "duration": "45 minutos"
     }
 ]
