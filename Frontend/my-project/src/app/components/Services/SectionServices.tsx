@@ -1,9 +1,29 @@
 "use client";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import CardServices from "./CardServices";
 import dataService from "./dataServices.json";
 
 export default function SectionServices() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const getResponse = await axios.get("http://localhost:3001/services/getAllServices")
+                setData(getResponse.data);
+            } catch (error) {
+                console.error("The Error:", error);
+            }
+        }
+
+        getData();
+    }, []);
+
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
+
     return (
         <section className="flex justify-center items-center bg-CinzaClaro py-32 w-full">
             <div className="flex justify-center items-center w-full">
