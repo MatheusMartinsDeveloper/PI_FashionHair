@@ -1,4 +1,4 @@
-import { Controller, Body, Post, Get } from "@nestjs/common";
+import { Controller, Body, Param, Post, Get } from "@nestjs/common";
 import { ServicesService } from "./services.service";
 import { CreateServicesDto } from "./dto/create-service.dto";
 
@@ -14,5 +14,10 @@ export class ServicesController {
     @Get("getAllServices")
     async getAll() {
         return this.servicesService.getAllServices();
+    }
+
+    @Get("details/:id")
+    async getById(@Param("id") id: string) {
+        return this.servicesService.getServiceById(id);
     }
 }

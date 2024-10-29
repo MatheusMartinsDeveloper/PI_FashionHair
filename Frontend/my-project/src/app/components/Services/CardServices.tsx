@@ -3,9 +3,13 @@ import { FaArrowRight } from "react-icons/fa6";
 import Image from "next/image";
 import Button from "../Button";
 
+type ImageObject = {
+    url: string;
+}
+
 type Service = {
     id?: string;
-    image: string[];
+    images: ImageObject[];
     name?: string;
     description?: string;
     time?: string;
@@ -13,8 +17,7 @@ type Service = {
     price?: string;
     note?: string;
     reviews?: string;
-    benefits?: string[],
-    payments?: string
+    benefits?: string[];
 }
 
 type CardServicesProps = {
@@ -28,7 +31,7 @@ export default function CardServices({ service }: CardServicesProps) {
             key={service.id}>
                 <div className="flex items-center w-full">
                     <Image className="rounded-tl-lg rounded-tr-lg w-full"
-                        src={service.image[0]} 
+                        src={service.images[0].url} 
                         alt="Image Serviço" 
                         quality={100} 
                         width={430}

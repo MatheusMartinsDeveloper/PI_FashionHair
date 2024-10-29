@@ -29,10 +29,21 @@ export class ServicesService {
     }
 
     async getAllServices() {
-        return this.prisma.service.findMany(
-            { include: { 
+        return this.prisma.service.findMany({ 
+            include: { 
                 images: true 
             } 
+        });
+    }
+
+    async getServiceById(id: string) {
+        return this.prisma.service.findUnique({
+            where: {
+                id: Number(id)
+            },
+            include: {
+                images: true
+            }
         });
     }
 }

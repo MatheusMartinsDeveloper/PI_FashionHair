@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { FaRegStar } from "react-icons/fa6";
@@ -6,18 +8,53 @@ import { FaCalendarAlt } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
 import Image from "next/image";
-import dataService from "../Services/dataServices.json";
+//import dataService from "../Services/dataServices.json";
 import Button from "../Button";
+
+type Image = {
+    url: string;
+}
+
+type Service = {
+    id: string;
+    images: Image[];
+    name: string;
+    description: string;
+    time: string;
+    date: string;
+    price: string;
+    note: string;
+    reviews: string;
+    benefits: string[];
+}
 
 type ServiceDetailsProps = {
     id: string | string[];
 }
 
 export default function ServiceDetails({ id }: ServiceDetailsProps) {
-    const service = dataService.find(indexService => indexService.id === id);
+    const [service, setService] = useState<Service | null>(null);
+    //const service = dataService.find(indexService => indexService.id === id);
+
+    useEffect(() => {
+        const getService = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/services/details/${id}`)
+                setService(response.data);
+            } catch (error) {
+                console.error("The Error:", error);
+            }
+        }
+
+        getService();
+    }, [id]);
+
+    useEffect(() => {
+        console.log(service);
+    }, [service]);
 
     return (
-        <div className="flex justify-center items-center bg-CinzaClaro py-32 w-full">
+        <div key={service?.id} className="flex justify-center items-center bg-CinzaClaro py-32 w-full">
             <div className="flex justify-center items-start bg-Branco shadow-2xl rounded-lg py-5 px-5 w-[80%] h-full">
                 <Swiper className="flex justify-center items-center w-[40%]"
                     modules={[Autoplay]}
@@ -26,10 +63,10 @@ export default function ServiceDetails({ id }: ServiceDetailsProps) {
                     }}
                     rewind={true}
                 >
-                    {service?.image.map(item => (
-                        <SwiperSlide key={item}>
+                    {service?.images?.map((item, index) => (
+                        <SwiperSlide key={index}>
                             <Image className="rounded-lg w-[90%] h-full"
-                                src={item} 
+                                src={item?.url} 
                                 alt="Image Serviço" 
                                 quality={100} 
                                 width={400}
