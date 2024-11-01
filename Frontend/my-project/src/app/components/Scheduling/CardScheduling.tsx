@@ -1,7 +1,6 @@
 "use client";
-
-import { useState, useContext, useRef } from "react";
-import { IDSchedulingContext } from "@/app/context/IDSchedulingContext";
+import { useState, useEffect, useRef } from "react";
+import { useParams } from "next/navigation";
 import { Stepper } from "primereact/stepper";
 import { StepperPanel } from "primereact/stepperpanel";
 import { InputText } from 'primereact/inputtext';
@@ -11,7 +10,24 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { Button } from 'primereact/button';
 import { Formik, Form } from "formik";
 import * as Yup from 'yup';
-import dataService from "../Services/dataServices.json";
+import axios from "axios";
+
+type Image = {
+    url: string;
+}
+
+type Service = {
+    id: string;
+    images: Image[];
+    name: string;
+    description: string;
+    time: string;
+    date: string;
+    price: string;
+    note: string;
+    reviews: string;
+    benefits: string[];
+}
 
 type InitialValues = {
     fullName: string;
@@ -25,11 +41,24 @@ type InitialValues = {
 }
 
 export default function CardScheduling() {
+    const [service, setService] = useState<Service | null>(null);
+    const { id } = useParams();
     const stepperRef = useRef(null);
-    const { id } = useContext(IDSchedulingContext);
     const [currentStep, setCurrentStep] = useState<number>(1);
     const [loading, setLoading] = useState<boolean>(false);
-    const service = dataService.find(item => item.id === id);
+
+    useEffect(() => {
+        const getResponse= async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/services/details/${id}`)
+                setService(response.data);
+            } catch (error) {
+                console.error("The Error:", error);
+            }
+        }
+
+        getResponse();
+    }, [id]);
 
     const handleLoading = () => {
         setLoading(true);
@@ -168,7 +197,7 @@ export default function CardScheduling() {
                                             className="bg-Branco border-2 border-[#D1D5DB] rounded-md shadow-md text-CinzaEscuro placeholder:text-[#9CA3AF] focus:border-Coral p-2 outline-none"
                                             id="durationEstimated"
                                             name="durationEstimated"
-                                            value={service?.duration}
+                                            value={service?.time}
                                             disabled
                                         />
                                    </div>
@@ -291,7 +320,7 @@ export default function CardScheduling() {
                                             className="bg-Branco border-2 border-[#D1D5DB] rounded-md shadow-md text-CinzaEscuro placeholder:text-[#9CA3AF] focus:border-Coral p-2 outline-none"
                                             id="durationEstimated"
                                             name="durationEstimated"
-                                            value={service?.duration}
+                                            value={service?.time}
                                             disabled
                                         />
                                    </div>
