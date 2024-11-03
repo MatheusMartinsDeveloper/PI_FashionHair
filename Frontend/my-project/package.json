@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/localizations": "^3.4.1",
     "@clerk/nextjs": "^6.1.0",
     "axios": "^1.7.7",
     "formik": "^2.4.6",
