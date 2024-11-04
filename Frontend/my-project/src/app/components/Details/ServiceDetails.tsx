@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { FaRegStar } from "react-icons/fa6";
@@ -7,8 +6,8 @@ import { MdFeedback } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
+import axios from "axios";
 import Image from "next/image";
-//import dataService from "../Services/dataServices.json";
 import Button from "../Button";
 
 type Image = {
@@ -34,7 +33,6 @@ type ServiceDetailsProps = {
 
 export default function ServiceDetails({ id }: ServiceDetailsProps) {
     const [service, setService] = useState<Service | null>(null);
-    //const service = dataService.find(indexService => indexService.id === id);
 
     useEffect(() => {
         const getService = async () => {

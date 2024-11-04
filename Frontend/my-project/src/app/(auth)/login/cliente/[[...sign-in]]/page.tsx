@@ -15,7 +15,9 @@ export default function SigninClient() {
                     />                    
                 </div>
                 <div className="flex justify-center items-center bg-CinzaClaro w-1/2 h-full">
-                    <SignIn signUpUrl="/cadastro/cliente" />
+                    <SignIn signUpUrl="/cadastro/cliente"
+                        appearance={{ elements: { headerTitle: "text-CinzaEscuro font-Poppins" } }}
+                    />
                 </div>
             </div>
         </main>

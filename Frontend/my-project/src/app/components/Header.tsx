@@ -6,9 +6,12 @@ import Logo from "../../../public/images/logo.png";
 import { FaArrowRight } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
+import {  UserButton, useUser } from "@clerk/nextjs"
 
 export default function Header() {
     const [content, setContent] = useState<boolean>(false);
+    const { isSignedIn } = useUser();
 
     return (
         <header className="flex justify-around items-center bg-Branco w-full">
@@ -33,6 +36,19 @@ export default function Header() {
                     Sobre
                 </Link>
             </nav>
+            { isSignedIn ? (
+                <div>
+                    <UserButton >
+                        <UserButton.MenuItems>
+                            <UserButton.Link 
+                                label="Agendamentos"
+                                labelIcon={<FaCalendarAlt />}
+                                href="/cliente/dashboard"
+                            />
+                        </UserButton.MenuItems>
+                    </UserButton>
+                </div>
+            ) : (
             <div className="relative w-[15%]">
                 <button onClick={() => setContent(!content)} className="flex justify-center items-center gap-3 border-2 border-Coral rounded-full bg-Coral py-2 w-full text-Branco text-base font-Poppins font-medium uppercase group transition-all delay-75 ease-in-out hover:bg-CoralEscuro">
                     Login <FaArrowRight className="-rotate-45 transition-all delay-75 ease-in-out group-hover:rotate-0" />
@@ -52,6 +68,7 @@ export default function Header() {
                 </div>
                 )}
             </div>
+            )}
         </header>
     );
 }
