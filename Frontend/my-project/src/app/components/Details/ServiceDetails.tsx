@@ -7,8 +7,11 @@ import { FaCalendarAlt } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/autoplay";
 import axios from "axios";
+import { Dialog } from "primereact/dialog";
+import { useUser } from "@clerk/nextjs";
+import { Button } from "primereact/button";
 import Image from "next/image";
-import Button from "../Button";
+import ButtonComponent from "../Button";
 
 type Image = {
     url: string;
@@ -33,6 +36,25 @@ type ServiceDetailsProps = {
 
 export default function ServiceDetails({ id }: ServiceDetailsProps) {
     const [service, setService] = useState<Service | null>(null);
+    const [dialogVisible, setDialogVisible] = useState(false);
+    const { isSignedIn } = useUser();
+
+    const handleDialogVisible = () => {
+        if (!isSignedIn) {
+            setDialogVisible(true);
+        } else {
+            window.location.href = `/servicos/detalhes/${id}/agendamento`
+        }
+    }
+
+    const footerContent = (
+        <div className="flex justify-end items-center gap-5 w-full">
+            <Button className="text-Branco text-sm uppercase font-Poppins font-medium bg-Coral shadow-md shadow-gray-500 rounded-md p-2.5 w-[30%] hover:bg-CoralEscuro group"
+                label="Voltar" icon="pi pi-arrow-left" iconPos="left" onClick={() => setDialogVisible(false)} />
+            <Button className="text-Branco text-sm uppercase font-Poppins font-medium bg-Coral shadow-md shadow-gray-500 rounded-md p-2.5 w-[30%] hover:bg-CoralEscuro"
+                label="Logar" icon="pi pi-external-link" iconPos="right" autoFocus onClick={() => window.location.href = "/login/cliente"} />
+        </div>
+    );
 
     useEffect(() => {
         const getService = async () => {
@@ -109,12 +131,28 @@ export default function ServiceDetails({ id }: ServiceDetailsProps) {
                         </div>
                     </div>
                     <div className="flex justify-center items-center w-full">
-                        <Button className="flex justify-center items-center gap-5 bg-Coral text-Branco text-lg uppercase font-Poppins font-medium rounded-lg p-3 w-full transition-all delay-75 ease-in-out hover:bg-CoralEscuro"                 
-                            href={`/servicos/detalhes/${id}/agendamento`}
+                        <ButtonComponent className="flex justify-center items-center gap-5 bg-Coral text-Branco text-lg uppercase font-Poppins font-medium rounded-lg p-3 w-full transition-all delay-75 ease-in-out hover:bg-CoralEscuro"                 
+                            onClick={handleDialogVisible}
+                            href={``}
+                            //href={`/servicos/detalhes/${id}/agendamento`}
                         >Agendar <FaCalendarAlt />
-                        </Button>
+                        </ButtonComponent>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Dialog
+                    className="flex flex-col gap-5 bg-Branco shadow-2xl rounded-md p-5 w-[30%] h-[20%]"
+                    maskClassName="bg-gray-500 bg-opacity-50" 
+                    headerClassName="text-CinzaEscuro text-2xl font-Poppins font-medium"
+                    modal={true}
+                    header={"Login"} 
+                    footer={footerContent}
+                    visible={dialogVisible} 
+                    draggable={false}
+                    onHide={() => {if (!dialogVisible) return; setDialogVisible(false); }}>
+                    <p className="text-CinzaEscuro text-lg font-Lato font-normal">Você precisa estar logado para realizar um agendamento!</p>
+                </Dialog>
             </div>
         </div>
     );

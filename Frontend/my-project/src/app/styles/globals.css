@@ -93,3 +93,7 @@
 .p-datepicker-group-container {
     @apply absolute top-[-2em] right-[-30em] bg-Branco border-2 border-gray-300 rounded-md shadow-2xl p-5 w-[70%];
 }
+
+.p-button-icon {
+    @apply transition-all ease-in-out delay-75 rotate-45 group-hover:rotate-0;
+}

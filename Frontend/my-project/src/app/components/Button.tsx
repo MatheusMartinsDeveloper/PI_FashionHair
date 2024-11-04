@@ -8,7 +8,7 @@ type ButtonProps = {
     onClick?: () => void
 }
 
-export default function Button({ children, className, href, onClick }: ButtonProps) {
+export default function ButtonComponent({ children, className, href, onClick }: ButtonProps) {
     return (
         <Link onClick={onClick} className={className} href={href}>{children}</Link>
     );
