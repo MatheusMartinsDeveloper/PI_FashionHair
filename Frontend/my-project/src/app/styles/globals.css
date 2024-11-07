@@ -55,7 +55,7 @@
 }
 
 .custom-icon-left .pi {
-    @apply transition-all delay-75 ease-in-out;
+    @apply transition-all delay-75 ease-in-out rotate-0;
 }
 
 .custom-icon-left:hover .pi {
@@ -94,6 +94,6 @@
     @apply absolute top-[-2em] right-[-30em] bg-Branco border-2 border-gray-300 rounded-md shadow-2xl p-5 w-[70%];
 }
 
-.p-button-icon {
-    @apply transition-all ease-in-out delay-75 rotate-45 group-hover:rotate-0;
+.pi-arrow-left {
+    @apply rotate-45 transition-all ease-in-out delay-75 group-hover:rotate-0;
 }

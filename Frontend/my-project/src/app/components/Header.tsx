@@ -11,7 +11,7 @@ import {  UserButton, useUser } from "@clerk/nextjs"
 
 export default function Header() {
     const [content, setContent] = useState<boolean>(false);
-    const { isSignedIn } = useUser();
+    const { isSignedIn, user } = useUser();
 
     return (
         <header className="flex justify-around items-center bg-Branco w-full">
@@ -37,17 +37,24 @@ export default function Header() {
                 </Link>
             </nav>
             { isSignedIn ? (
-                <div>
-                    <UserButton >
-                        <UserButton.MenuItems>
-                            <UserButton.Link 
-                                label="Agendamentos"
-                                labelIcon={<FaCalendarAlt />}
-                                href="/cliente/dashboard"
-                            />
-                        </UserButton.MenuItems>
-                    </UserButton>
-                </div>
+                <>
+                    <div className="flex items-center gap-5">
+                        <div>
+                            <span className="text-CinzaEscuro text-sm font-Poppins font-medium">{user.fullName}</span>
+                        </div>
+                        <div className="scale-125">
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Link
+                                        label="Agendamentos"
+                                        labelIcon={<FaCalendarAlt />}
+                                        href="/cliente/dashboard"
+                                    />
+                                </UserButton.MenuItems>
+                            </UserButton>
+                        </div>
+                    </div>
+                </>
             ) : (
             <div className="relative w-[15%]">
                 <button onClick={() => setContent(!content)} className="flex justify-center items-center gap-3 border-2 border-Coral rounded-full bg-Coral py-2 w-full text-Branco text-base font-Poppins font-medium uppercase group transition-all delay-75 ease-in-out hover:bg-CoralEscuro">
