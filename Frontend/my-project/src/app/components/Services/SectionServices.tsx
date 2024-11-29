@@ -9,7 +9,7 @@ export default function SectionServices() {
     useEffect(() => {
         const getData = async () => {
             try {
-                const getResponse = await axios.get("http://localhost:3001/services/getAllServices")
+                const getResponse = await axios.get("http://localhost:3001/service/getAllServices")
                 setData(getResponse.data);
             } catch (error) {
                 console.error("The Error:", error);

@@ -1,9 +1,10 @@
-import { IsArray, IsNotEmpty, IsString } from "class-validator";
+import { IsString, IsArray, IsOptional, IsNotEmpty } from "class-validator";
 
-export class CreateServicesDto {
+export class CreateServiceDto {
+    @IsOptional()
     @IsArray()
     @IsString({ each: true })
-    images: string[];
+    images?: string[];
 
     @IsString()
     @IsNotEmpty()

@@ -59,7 +59,7 @@ export default function ServiceDetails({ id }: ServiceDetailsProps) {
     useEffect(() => {
         const getService = async () => {
             try {
-                const response = await axios.get(`http://localhost:3001/services/details/${id}`)
+                const response = await axios.get(`http://localhost:3001/service/details/${id}`)
                 setService(response.data);
             } catch (error) {
                 console.error("The Error:", error);
