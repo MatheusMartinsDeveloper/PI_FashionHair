@@ -8,7 +8,7 @@ export class SchedulingService {
     constructor(private prisma: PrismaService) {}
 
     async createScheduling(createSchedulingDto: CreateSchedulingDto): Promise<Scheduling> {
-        const { fullName, email, telephone, service, date, time, observation } = createSchedulingDto;
+        const { fullName, email, telephone, service, date, time, observation, userId } = createSchedulingDto;
 
         const schedulingNewData: Prisma.SchedulingCreateInput = {
             fullName,
@@ -17,11 +17,24 @@ export class SchedulingService {
             service,
             date,
             time,
-            observation
+            observation,
+            userId
         };
 
         return this.prisma.scheduling.create({
             data: schedulingNewData
+        });
+    }
+
+    async getAllScheduling() {
+        return this.prisma.scheduling.findMany();
+    }
+
+    async getScheduling(id: string) {
+        return await this.prisma.scheduling.findUnique({
+            where: {
+                userId: id
+            }
         });
     }
 }

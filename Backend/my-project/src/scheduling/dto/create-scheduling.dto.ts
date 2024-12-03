@@ -27,4 +27,8 @@ export class CreateSchedulingDto {
 
     @IsString()
     observation: string;
+
+    @IsString()
+    @IsNotEmpty()
+    userId: string;
 }

@@ -37,4 +37,5 @@ model Scheduling {
   date        String
   time        String
   observation String?
+  userId      String  @unique
 }

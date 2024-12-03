@@ -27,7 +27,7 @@
 }
 
 .p-stepper {
-    @apply flex justify-center items-center bg-Branco rounded-tl-md rounded-tr-md pt-10 w-[60%];
+    @apply bg-Branco rounded-tl-md rounded-tr-md p-10 w-[60%];
 }
 
 .p-stepper-nav {
@@ -39,7 +39,7 @@
 }
 
 .p-stepper-number {
-    @apply text-CinzaEscuro text-base font-Poppins font-medium border-2 border-CinzaEscuro rounded-full px-2;
+    @apply text-Branco text-base font-Poppins font-medium bg-Coral border-2 border-Coral rounded-full px-2;
 }
 
 .p-stepper-title {

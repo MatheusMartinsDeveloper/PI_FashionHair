@@ -27,9 +27,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
   return (
-    <ClerkProvider localization={ptBR}>
+    <ClerkProvider localization={ptBR} dynamic>
       <html lang="pt-br">
-        <body>
+        <body className="overflow-x-hidden">
           <Header />
           {children}
           <Footer />
