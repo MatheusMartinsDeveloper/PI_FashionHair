@@ -31,10 +31,10 @@ model Images {
 model Scheduling {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   fullName    String
-  email       String  @unique
-  telephone   String  @unique
+  email       String  
+  telephone   String  
   service     String
-  date        String
+  date        DateTime
   time        String
   observation String?
   userId      String  @unique

@@ -10,12 +10,14 @@ export class SchedulingService {
     async createScheduling(createSchedulingDto: CreateSchedulingDto): Promise<Scheduling> {
         const { fullName, email, telephone, service, date, time, observation, userId } = createSchedulingDto;
 
+        const parsedDate = new Date(date.split('/').reverse().join('-'));
+
         const schedulingNewData: Prisma.SchedulingCreateInput = {
             fullName,
             email,
             telephone,
             service,
-            date,
+            date: parsedDate,
             time,
             observation,
             userId
@@ -34,6 +36,23 @@ export class SchedulingService {
         return await this.prisma.scheduling.findUnique({
             where: {
                 userId: id
+            }
+        });
+    }
+
+    async findByMonthAndYear(month: number, year: number): Promise<Scheduling[]> {
+        const startDate = new Date(year, month - 1, 1, 0, 0, 0, 0);
+        const endDate = new Date(year, month, 0, 23, 59, 59, 999); 
+
+        return this.prisma.scheduling.findMany({
+            where: {
+                date: {
+                    gte: startDate,
+                    lte: endDate
+                }
+            },
+            orderBy: {
+                date: 'asc'
             }
         });
     }

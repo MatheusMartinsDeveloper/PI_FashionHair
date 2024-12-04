@@ -12,6 +12,7 @@ import {  UserButton, useUser } from "@clerk/nextjs"
 export default function Header() {
     const [content, setContent] = useState<boolean>(false);
     const { isSignedIn, user } = useUser();
+    const href = user?.publicMetadata.role === "admin" ? "/dashboard/admin" : "/dashboard";
 
     return (
         <header className="flex justify-around items-center bg-Branco w-full">
@@ -46,9 +47,9 @@ export default function Header() {
                             <UserButton>
                                 <UserButton.MenuItems>
                                     <UserButton.Link
-                                        label="Agendamentos"
+                                        label="Dashboard"
                                         labelIcon={<FaCalendarAlt />}
-                                        href="/cliente/dashboard"
+                                        href={href}
                                     />
                                 </UserButton.MenuItems>
                             </UserButton>
